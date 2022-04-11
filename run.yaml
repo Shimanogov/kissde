@@ -1,0 +1,14 @@
+container:
+  image: "score_sde:latest"
+  command: 'python train.py'
+  tty: True
+  environment:
+    - "WANDB_API_KEY=<KEY>"
+    - "NVIDIA_VISIBLE_DEVICES=1"
+code:
+  folder: "."
+
+host_config:
+  runtime: nvidia
+  shm_size: 4g
+  mem_limit: 32g
